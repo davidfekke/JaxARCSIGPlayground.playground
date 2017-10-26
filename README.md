@@ -2,6 +2,8 @@
 
 Here are the code examples from the presentation on Swift
 
+## Hello, World! example
+
 ```swift
 //: Playground - noun: a place where people can play
 
@@ -14,6 +16,13 @@ let group = "JaxARCSIG"
 var str = "Hello, \(group)"
 
 print(str)
+```
+
+## Setting variables
+
+Use the `var` and `let` keywords to set variable. The `let` keyword makes the variable immutable.
+
+```swift
 
 // Use var for mutable values
 var name = "David"
@@ -39,6 +48,11 @@ str2 = "Dave"
 var str3: String? = "David"
 str3 = nil
 str3 = "Dave"
+```
+
+## Collection types
+
+```swift
 
 // Basic Array
 let myArray = ["Dog", "Cat", "Bird", "Snake"]
@@ -53,7 +67,11 @@ emptyArray = myArray
 // emptyDictionary
 var emptyDict: [String:Int]
 emptyDict = myDict
+```
 
+## Looping over Collections
+
+```swift
 let names = ["Anna", "Alex", "Brian", "Jack"]
 for name in names {
     print("Hello, \(name)!")
@@ -81,7 +99,11 @@ for i in 1...9 {
 for i in 1..<10 {
     print("Number \(i)")
 }
+```
 
+## Ranges 
+
+```swift
 // Can also increment by more than 1 at a time
 
 let hours = 12
@@ -89,7 +111,11 @@ let hourInterval = 3
 for tickMark in stride(from: 3, through: hours, by: hourInterval) {
     print("render the \(tickMark) every 3 hours") // (3, 6, 9, 12)
 }
+```
 
+## Conditional Statements
+
+```swift
 let myNumber: Int = 32
 
 if myNumber <= 33 {
@@ -115,7 +141,11 @@ switch approximateCount {
     default:
         naturalCount = "many"
 }
+```
 
+## Optional checking
+
+```swift
 class Starship {
     init (prefix: String?) {
         self.prefix = prefix
@@ -137,6 +167,11 @@ if let prefix3 = ncc1701.prefix {
 //guard let prefix4 = ncc1701.prefix else {
 //   throw Error
 //}
+```
+
+## Error handling
+
+```swift
 
 func someThrowingFunction() throws -> Int {
     // ...
@@ -151,7 +186,11 @@ do {
 } catch {
     y = nil
 }
+```
 
+## Functions
+
+```swift
 func printThisValue(_ param: String) {
     print("Printing value \(param)")
 }
@@ -172,20 +211,26 @@ func adder(_ first: Int, add second: Int) -> Int {
 
 let addedValue = adder(32, add:49)
 print("Added value \(addedValue)")
+```
 
+## Generics
+
+```swift
+// This function swaps out values for Strings
 func swapTwoStrings(_ a: inout String, _ b: inout String) {
     let temporaryA = a
     a = b
     b = temporaryA
 }
- 
+
+// This function swaps out values for Ints 
 func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
     let temporaryA = a
     a = b
     b = temporaryA
 }
 
-// Be changed to one function
+// It can be changed to one function
 func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
     let temporaryA = a
     a = b
@@ -197,7 +242,11 @@ var doug = "Doug"
 
 swapTwoValues(&bob, &doug)
 print(bob) // Doug
+```
 
+## Closures
+
+```swift
 
 let namesArr = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 
@@ -220,7 +269,11 @@ reversedNames = namesArr.sorted(by: { $0 > $1 })
 reversedNames = namesArr.sorted(by:) { $0 > $1 }
 
 reversedNames = namesArr.sorted(by:>)
+```
 
+## Structs
+
+```swift
 struct Rectangle {
     let width: Float
     let height: Float
@@ -253,7 +306,11 @@ struct Person {
 
 let debbie = Person(name: "Debbie")
 debbie.sayName()
+```
 
+## Classes
+
+```swift
 class PersonC {
     var firstName: String
     var lastName: String
@@ -272,8 +329,11 @@ class PersonC {
 
 let john = PersonC(first: "John", last: "Lyons", age: 42)
 let personDesc = john.describePerson() // "John Lyons is 42 years old
+```
 
+## Inheritance
 
+```swift
 class Employee : PersonC {
     var employeeId: Int?
     init(first firstName: String, last lastName: String, age: Int, id employeeId: Int?) {
@@ -289,7 +349,11 @@ class Employee : PersonC {
 let rich = Employee(first: "Richard", last: "Dutton", age: 62, id: 8907890)
 let empDesc = rich.describePerson()
 print(empDesc)
+```
 
+## Enums
+
+```swift
 enum CompassPoint {
     case north
     case south
@@ -310,7 +374,11 @@ case .west:
     print("Where the skies are blue")
 }
 // Prints "Where the skies are blue"
+```
 
+## Extensions
+
+```swift
 extension Double {
     var km: Double { return self * 1_000.0 }
     var m: Double { return self }
@@ -321,7 +389,11 @@ extension Double {
 let oneInch = 25.4.mm
 print("One inch is \(oneInch) meters")
 // Prints "One inch is 0.0254 meters”
+```
 
+## Protocols
+
+```swift
 protocol FullyNamed {
     var fullName: String { get }
 }
@@ -346,7 +418,11 @@ class StarshipP: FullyNamed {
     }
 }
 var ncc1701a = StarshipP(name: "Enterprise", prefix: "USS")
+```
 
+## Swift 4 Codable and Decodable types
+
+```swift
 struct Swifter: Decodable {
     let fullName: String
     let id: Int
